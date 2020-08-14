@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://k7k235.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-07-13T10:41:55.562Z</updated>
+    <updated>2020-08-14T02:43:54.515Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://k7k235.github.io/"/>
     <link rel="self" href="https://k7k235.github.io/atom.xml"/>
@@ -10,6 +10,146 @@
     <logo>https://k7k235.github.io/images/avatar.png</logo>
     <icon>https://k7k235.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[程序设计与算法（三）第二周测验(2019春季) ]]></title>
+        <id>https://k7k235.github.io/post/cheng-xu-she-ji-yu-suan-fa-san-di-er-zhou-ce-yan-2019-chun-ji/</id>
+        <link href="https://k7k235.github.io/post/cheng-xu-she-ji-yu-suan-fa-san-di-er-zhou-ce-yan-2019-chun-ji/">
+        </link>
+        <updated>2020-08-14T02:28:01.000Z</updated>
+        <summary type="html"><![CDATA[<p>太受打击了，我知道怎么做但是居然无法表达出来，只做对了最简单的一题（😭😭）</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>太受打击了，我知道怎么做但是居然无法表达出来，只做对了最简单的一题（😭😭）</p>
+<!-- more -->
+<p>http://cxsjsxmooc.openjudge.cn/2019t3springw2/001/<br>
+实现一个学生信息处理程序，计算一个学生的四年平均成绩。<br>
+要求实现一个代表学生的类，并且类中所有成员变量都是【私有的】。<br>
+补充下列程序中的 Student 类以实现上述功能。<br>
+#include <cstdio><br>
+#include <cstring><br>
+#include <sstream><br>
+#include <cstdlib><br>
+using namespace std;</p>
+<p>class Student {<br>
+// 在此处补充你的代码<br>
+private:  //私有<br>
+char name[20];<br>
+int age;<br>
+int id;<br>
+int score[4];<br>
+double average;<br>
+char c;<br>
+public:  //公有<br>
+void input() {<br>
+cin.getline(name, 20,',');<br>
+//cin.getline(字符指针(char*),字符个数N(int),结束符(char));<br>
+//一次读取多个字符(包括空白字符），直到读满N-1个，或者遇到指定的结束符为止(默认的是以'\n'结束)<br>
+cin &gt;&gt; age &gt;&gt; c &gt;&gt; id;<br>
+for (int i = 0; i &lt; 4; ++i)<br>
+cin &gt;&gt; c &gt;&gt; score[i];<br>
+}<br>
+void calculate() {<br>
+int sum;<br>
+for (int i = 0; i &lt; 4; ++i)<br>
+sum += score[i];<br>
+average = sum / 4;<br>
+}<br>
+void output() {<br>
+cout &lt;&lt; name &lt;&lt; &quot;,&quot; &lt;&lt; age &lt;&lt; &quot;,&quot; &lt;&lt; id &lt;&lt; &quot;,&quot; &lt;&lt; average &lt;&lt; endl;<br>
+}<br>
+};</p>
+<p>int main() {<br>
+Student student;        // 定义类的对象<br>
+student.input();        // 输入数据<br>
+student.calculate();    // 计算平均成绩<br>
+student.output();       // 输出数据<br>
+}</p>
+<!-- more -->
+<p>http://cxsjsxmooc.openjudge.cn/2019t3springw2/002/<br>
+程序填空，使其输出9 22 5<br>
+#include <iostream><br>
+using namespace std;<br>
+class Sample {<br>
+public:<br>
+int v;<br>
+// 在此处补充你的代码<br>
+Sample(int c=0) { v = c; }    //构造函数带有默认缺省值<br>
+Sample(Sample&amp; c) {<br>
+v = c.v + 2;<br>
+}   //复制函数每次执行+2<br>
+};<br>
+void PrintAndDouble(Sample o)    //调用复制函数<br>
+{<br>
+cout &lt;&lt; o.v;<br>
+cout &lt;&lt; endl;<br>
+}<br>
+int main()<br>
+{<br>
+Sample a(5);<br>
+Sample b = a;<br>
+PrintAndDouble(b);<br>
+Sample c = 20;<br>
+PrintAndDouble(c);<br>
+Sample d;<br>
+d = a;<br>
+cout &lt;&lt; d.v;<br>
+return 0;<br>
+}<br>
+PS：只用函数初次运行是调用的是构造函数，之后调用的是复制函数</p>
+<!-- more -->
+<p>http://cxsjsxmooc.openjudge.cn/2019t3springw2/003/<br>
+下面程序的输出是：</p>
+<p>3+4i<br>
+5+6i</p>
+<p>请补足Complex类的成员函数。不能加成员变量。<br>
+#include <iostream><br>
+#include <cstring><br>
+#include <cstdlib><br>
+using namespace std;<br>
+class Complex {<br>
+private:<br>
+double r, i;<br>
+public:<br>
+void Print() {<br>
+cout &lt;&lt; r &lt;&lt; &quot;+&quot; &lt;&lt; i &lt;&lt; &quot;i&quot; &lt;&lt; endl;<br>
+}<br>
+// 在此处补充你的代码<br>
+Complex() {};<br>
+Complex(const char x[]) {<br>
+r = x[0] - '0';<br>
+i = x[2] - '0';<br>
+}<br>
+// 创建两个初始化结构函数，一个负责初始化，一个负责存放字符串。字符串转int不要忘记-‘0’<br>
+};<br>
+int main() {<br>
+Complex a;<br>
+a = &quot;3+4i&quot;; a.Print();<br>
+a = &quot;5+6i&quot;; a.Print();<br>
+return 0;<br>
+}<br>
+PS:可以采用数组的形式取出字符串中的单一字符。</p>
+<!-- more -->
+<p>http://cxsjsxmooc.openjudge.cn/2019t3springw2/004/<br>
+#include <iostream><br>
+using namespace std;<br>
+class A {<br>
+public:<br>
+int i;<br>
+A(int x) { i = x; }<br>
+// 在此处补充你的代码<br>
+~A() {<br>
+cout &lt;&lt; i &lt;&lt; endl;<br>
+}<br>
+};<br>
+int main()<br>
+{<br>
+A a(1);<br>
+A* pa = new A(2);<br>
+delete pa;<br>
+return 0;<br>
+}<br>
+PS：这个太简单了，需要注意的是new出来的空间只能通过delete进行释放，并不会因为程序的结束而释放</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://k7k235.github.io/post/hello-gridea/</id>
